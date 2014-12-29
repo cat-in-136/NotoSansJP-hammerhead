@@ -1,0 +1,14 @@
+ui_print("=== Japanese-NotoSans-install ===");
+ui_print("Mounting file system...");
+run_program("/sbin/mount", "/system");
+ui_print("Installing...");
+package_extract_dir("system", "/system");
+set_perm(0, 0, 0644, "/system/etc/fonts.xml");
+set_perm(0, 0, 0644, "/system/etc/fallback_fonts.xml");
+set_perm(0, 0, 0644, "/system/fonts/NotoSansJP-Black.otf");
+set_perm(0, 0, 0644, "/system/fonts/NotoSansJP-Bold.otf");
+set_perm(0, 0, 0644, "/system/fonts/NotoSansJP-Regular.otf");
+set_perm(0, 0, 0644, "/system/fonts/NotoSansJP-Light.otf");
+ui_print("Unmounting...");
+run_program("/sbin/umount", "/system");
+ui_print("all done!");
